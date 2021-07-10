@@ -6,11 +6,13 @@ import getPc
 import datetime
 
 username = getpass.getuser()
+getCity = input("Please enter your city: ")
+
 
 async def getWeather():
     client = python_weather.Client(format=python_weather.IMPERIAL)
-    weather = await client.find("Manavgat")
-    printWith(Colors.RED, Colors.BOLD, "\nManavgat: " + str(weather.current.temperature) + "°" + "\n")
+    weather = await client.find(getCity)
+    printWith(Colors.RED, Colors.BOLD, f"\n{getCity}: " + str(weather.current.temperature) + "°" + "\n".format(getCity))
     dt = datetime.datetime.now()
     printWith(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
     await client.close()
