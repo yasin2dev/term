@@ -1,13 +1,22 @@
 import os
+from printwith import *
 
-def runShell():
-    while (True):
-        currentDir = os.getcwd()
-        cmd = input(f'\33[91m{currentDir}:>\33[0m'.format(currentDir))
+while (True):
 
-        if cmd == "restart":
-            os.system("python main.py")
-            print("Restarting...")
-            exit()
-        else:
-            os.system(cmd)
+    cdPrefix = "cd"
+    currentDir = os.getcwd()
+    cmd = input(f'\33[94m{currentDir}:>\33[0m'.format(currentDir))
+
+    if cmd == "restart":
+        os.system("python main.py")
+        print("Restarting...")
+        exit()
+        
+    elif cmd.startswith(cdPrefix):
+        try:
+            ncmd = cmd.split()
+            os.chdir(ncmd[1])
+        except FileNotFoundError:
+            printWith(Colors.RED, Colors.BOLD, "Sorry! I can't find your directory!")
+    else:
+        os.system(cmd)
