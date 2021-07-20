@@ -18,8 +18,12 @@ def runShell():
                 ncmd = cmd.split()
                 os.chdir(ncmd[1])
             except FileNotFoundError:
-                printWith(Colors.RED, Colors.BOLD, "Sorry! I can't find your directory!")
+                printWithBold(Colors.RED, Colors.BOLD, "Sorry! I can't find your directory!")
         elif cmd == "exit":
             exit()
+        
+        elif cmd == "ls":
+            os.system("dir")
+            # In the future, I will create custom 'ls' commands.
         else:
             os.system(cmd)

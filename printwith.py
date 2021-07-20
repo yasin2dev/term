@@ -6,5 +6,8 @@ class Colors:
     BOLD = '\033[1m'
     RED = '\033[91m'
 
-def printWith(color: Colors, b: Colors, text):
+def printWithBold(color: Colors, b: Colors, text):
     print(color + b + text + Colors.ENDC)
+
+def printWithRegular(color: Colors, text):
+    print(color + text + Colors.ENDC)
