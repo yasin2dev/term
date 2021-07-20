@@ -25,5 +25,14 @@ def runShell():
         elif cmd == "ls":
             os.system("dir")
             # In the future, I will create custom 'ls' commands.
+        elif cmd == "help":
+            printWithRegular(Colors.YELLOW, """
+            Here is the Term Help!
+
+            cd          Change Directory (default)
+            ls          List Directory (default)
+            restart     Restart Script (adjust main.py directory to shell.py)
+            exit        Exit (default)
+            """)
         else:
             os.system(cmd)

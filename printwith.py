@@ -5,6 +5,7 @@ class Colors:
     CYAN = '\033[36m'
     BOLD = '\033[1m'
     RED = '\033[91m'
+    YELLOW = '\033[33m'
 
 def printWithBold(color: Colors, b: Colors, text):
     print(color + b + text + Colors.ENDC)
