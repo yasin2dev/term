@@ -19,21 +19,23 @@ else:
 def enterCity():
     with open(".term_config", "w+") as f:
         getCity = input("Please enter your city: ")
-        f.write(getCity)
+        f.write(f"WEATHER_CITY: {getCity}".format(getCity))
         f.close()
 
 with open(".term_config", "r") as f:
     if os.stat(".term_config").st_size == 0:
         enterCity()
         setCity = f.read()
+        nSetCity = setCity.split("WEATHER_CITY: ")
     else:
         setCity = f.read()
+        nSetCity = setCity.split("WEATHER_CITY: ")
     f.close()
 
 async def getWeather():
     client = python_weather.Client(format=python_weather.IMPERIAL)
-    weather = await client.find(setCity)
-    printWithBold(Colors.RED, Colors.BOLD, f"\n{setCity}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
+    weather = await client.find(nSetCity[1])
+    printWithBold(Colors.RED, Colors.BOLD, f"\n{nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
     dt = datetime.datetime.now()
     printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
     await client.close()
