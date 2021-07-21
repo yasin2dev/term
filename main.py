@@ -1,4 +1,5 @@
 import getpass
+from types import TracebackType
 from printwith import *
 import asyncio
 import python_weather
@@ -33,12 +34,16 @@ with open(".term_config", "r") as f:
     f.close()
 
 async def getWeather():
-    client = python_weather.Client(format=python_weather.IMPERIAL)
-    weather = await client.find(nSetCity[1])
-    printWithBold(Colors.RED, Colors.BOLD, f"\n{nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
-    dt = datetime.datetime.now()
-    printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
-    await client.close()
+    try:
+        client = python_weather.Client(format=python_weather.IMPERIAL)
+        weather = await client.find(nSetCity[1])
+        printWithBold(Colors.RED, Colors.BOLD, f"\n{nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
+        dt = datetime.datetime.now()
+        printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
+        await client.close()
+    except:
+        printWithBold(Colors.RED, Colors.BOLD, "Sorry, you need to connect to internet for weather forecast.")
+        await client.close()
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(getWeather())
