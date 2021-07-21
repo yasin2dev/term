@@ -6,7 +6,7 @@ def runShell():
 
         cdPrefix = "cd"
         currentDir = os.getcwd()
-        cmd = input(f'\33[94m{currentDir}:>\33[0m'.format(currentDir))
+        cmd = input(f'\33[94m{currentDir}:> \33[0m'.format(currentDir))
 
         if cmd == "restart":
             os.system("python main.py")
