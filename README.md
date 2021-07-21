@@ -1,6 +1,9 @@
 # Welcome to **Term** sir!
 
-### ScreenShot
+## ScreenShot
+
+---
+<br>
 
 ![Term](./res/term.png)
 
