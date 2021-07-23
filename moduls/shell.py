@@ -29,6 +29,15 @@ def runShell():
             # In the future, I will create custom 'ls' commands.
         elif cmd == "help":
             help.HelpText()
+        elif cmd == "shutdown":
+            sure = input("Are you sure? (yes / no): ")
+            if sure == 'yes':
+                os.system("shutdown /s /t 1")
+            elif sure == 'no':
+                return
+            else:
+                printWithRegular(Colors.RED, "Plese enter 'yes' or 'no'"),
+                pass
         else:
             printWithRegular(Colors.RED, "This command is not a term command. I'm running this in CMD...")
             time.sleep(2)
