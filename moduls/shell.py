@@ -1,6 +1,7 @@
 import os
 from printwith import *
 import moduls.help as help
+import time
 
 def runShell():
     while (True):
@@ -29,4 +30,6 @@ def runShell():
         elif cmd == "help":
             help.HelpText()
         else:
+            printWithRegular(Colors.RED, "This command is not a term command. I'm running this in CMD...")
+            time.sleep(2)
             os.system(cmd)
