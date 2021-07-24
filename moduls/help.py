@@ -9,4 +9,5 @@ def HelpText():
         ls          List Directory (default)
         restart     Restart Script (adjust main.py directory to shell.py)
         exit        Exit (default)
+        shutdown    Turns off the PC.
     """))
