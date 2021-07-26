@@ -12,7 +12,6 @@ def runShell():
 
         if cmd == "restart":
             os.system("python main.py")
-            print("Restarting...")
             exit()
         
         elif cmd.startswith(cdPrefix):
