@@ -11,8 +11,11 @@ def runShell():
         cmd = input(f'\33[94m{currentDir}:> \33[0m'.format(currentDir))
 
         if cmd == "restart":
-            os.system("python main.py")
-            exit()
+            if os.name == "nt":
+                os.system("python main.py")
+                exit()
+            else:
+                os.system("python3 main.py")
         
         elif cmd.startswith(cdPrefix):
             try:
@@ -24,7 +27,10 @@ def runShell():
             exit()
         
         elif cmd == "ls":
-            os.system("dir")
+            if os.name == "nt":
+                os.system("dir")
+            else:
+                os.system("ls")            
             # In the future, I will create custom 'ls' commands.
         elif cmd == "help":
             help.HelpText()
