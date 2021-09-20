@@ -35,7 +35,7 @@ with open(".term_config", "r") as f:
 
 async def getWeather():
     try:
-        client = python_weather.Client(format=python_weather.IMPERIAL)
+        client = python_weather.Client(format=python_weather.METRIC)
         weather = await client.find(nSetCity[1])
         printWithBold(Colors.RED, Colors.BOLD, f"\n{nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
         dt = datetime.datetime.now()
