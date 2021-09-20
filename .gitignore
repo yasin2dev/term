@@ -1,3 +1,4 @@
 /.idea
 __pycache__
 .term_config
+*.swp
