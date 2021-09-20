@@ -44,6 +44,4 @@ def runShell():
                 printWithRegular(Colors.RED, "Plese enter 'yes' or 'no'"),
                 pass
         else:
-            printWithRegular(Colors.RED, "This command is not a term command. I'm running this in CMD...")
-            time.sleep(0.2) # I'll adjust this be configurable
             os.system(cmd)
