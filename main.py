@@ -1,5 +1,4 @@
 import getpass
-from types import TracebackType
 from printwith import *
 import asyncio
 import python_weather
