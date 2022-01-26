@@ -1,6 +1,7 @@
 import os
 from printwith import *
 import moduls.help as help
+import moduls.ls as ls
 import time
 
 def runShell():
@@ -28,7 +29,7 @@ def runShell():
         
         elif cmd == "ls":
             if os.name == "nt":
-                os.system("dir")
+                ls.ListDir(str(os.getcwd()))
             else:
                 os.system("ls")            
             # In the future, I will create custom 'ls' commands.
