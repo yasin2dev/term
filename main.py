@@ -32,7 +32,7 @@ with open(".term_config", "r") as f:
         nSetCity = setCity.split("WEATHER_CITY: ")
     f.close()
 
-async def getWeather():
+async def getTimeAndWeather():
     try:
         client = python_weather.Client(format=python_weather.METRIC)
         weather = await client.find(nSetCity[1])
@@ -45,7 +45,7 @@ async def getWeather():
         await client.close()
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(getWeather())
+loop.run_until_complete(getTimeAndWeather())
 
 printWithBold(Colors.BLUE, Colors.BOLD, "Welcome to Term " + username + "\n")
 
