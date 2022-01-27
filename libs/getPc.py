@@ -1,5 +1,5 @@
 import platform, psutil, json
-from printwith import *
+from libs.printwith import *
 
 
 def is_64bit():

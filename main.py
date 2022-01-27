@@ -1,42 +1,20 @@
 import getpass
-from printwith import *
+from libs.printwith import *
 import asyncio
 import python_weather
-import getPc
+from libs import getPc
 import datetime
 import moduls.shell as shell
-import os
+import moduls.config as cfg
 
 
 username = getpass.getuser()
 
-if os.path.isfile(".term_config"):
-    pass
-else:
-    open(".term_config", "w+").close()
-
-
-def enterCity():
-    with open(".term_config", "w+") as f:
-        getCity = input("Please enter your city: ")
-        f.write(f"WEATHER_CITY: {getCity}".format(getCity))
-        f.close()
-
-with open(".term_config", "r") as f:
-    if os.stat(".term_config").st_size == 0:
-        enterCity()
-        setCity = f.read()
-        nSetCity = setCity.split("WEATHER_CITY: ")
-    else:
-        setCity = f.read()
-        nSetCity = setCity.split("WEATHER_CITY: ")
-    f.close()
-
 async def getTimeAndWeather():
     try:
         client = python_weather.Client(format=python_weather.METRIC)
-        weather = await client.find(nSetCity[1])
-        printWithBold(Colors.RED, Colors.BOLD, f"\n{nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(setCity))
+        weather = await client.find(cfg.nSetCity[1])
+        printWithBold(Colors.RED, Colors.BOLD, f"\n{cfg.nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(cfg.setCity))
         dt = datetime.datetime.now()
         printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
         await client.close()

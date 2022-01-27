@@ -1,8 +1,7 @@
 import os
-from printwith import *
+from libs.printwith import *
 import moduls.help as help
 import moduls.ls as ls
-import time
 
 def runShell():
     while (True):
@@ -32,7 +31,6 @@ def runShell():
                 ls.ListDir(str(os.getcwd()))
             else:
                 os.system("ls")            
-            # In the future, I will create custom 'ls' commands.
         elif cmd == "help":
             help.HelpText()
         elif cmd == "shutdown":
