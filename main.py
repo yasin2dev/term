@@ -1,3 +1,5 @@
+#Term Version: 0.1.2-beta-1
+
 import getpass
 from libs.printwith import *
 import asyncio
