@@ -2,13 +2,15 @@ import os
 from libs.printwith import *
 import moduls.help as help
 import moduls.ls as ls
+import libs.inputwith as iw
+import moduls.config as cfg
 
 def runShell():
     while (True):
 
         cdPrefix = "cd"
         currentDir = os.getcwd()
-        cmd = input(f'\33[94m{currentDir}:> \33[0m'.format(currentDir))
+        cmd = iw.inputWithColor(currentDir)
 
         if cmd == "restart":
             if os.name == "nt":
@@ -42,5 +44,7 @@ def runShell():
             else:
                 printWithRegular(Colors.RED, "Plese enter 'yes' or 'no'"),
                 pass
+        elif cmd == "config":
+            cfg.startConfig()
         else:
             os.system(cmd)

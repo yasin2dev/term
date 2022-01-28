@@ -5,7 +5,7 @@ import python_weather
 from libs import getPc
 import datetime
 import moduls.shell as shell
-import moduls.config as cfg
+import moduls.config as c
 
 
 username = getpass.getuser()
@@ -13,12 +13,13 @@ username = getpass.getuser()
 async def getTimeAndWeather():
     try:
         client = python_weather.Client(format=python_weather.METRIC)
-        weather = await client.find(cfg.nSetCity[1])
-        printWithBold(Colors.RED, Colors.BOLD, f"\n{cfg.nSetCity[1]}: " + str(weather.current.temperature) + "C°" + "\n".format(cfg.setCity))
+        weather = await client.find(c.nSetCity)
+        printWithBold(Colors.RED, Colors.BOLD, f"{c.nSetCity}: " + str(weather.current.temperature) + "C°" + "\n")
         dt = datetime.datetime.now()
         printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
         await client.close()
-    except:
+    except Exception as e:
+        print(e)
         printWithBold(Colors.RED, Colors.BOLD, "Sorry, you need to connect to internet for weather forecast.")
         await client.close()
 
