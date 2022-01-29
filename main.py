@@ -8,6 +8,7 @@ from libs import getPc
 import datetime
 import moduls.shell as shell
 import moduls.config as c
+from libs.emojiSupport import *
 
 
 username = getpass.getuser()
@@ -28,7 +29,7 @@ async def getTimeAndWeather():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(getTimeAndWeather())
 
-printWithBold(Colors.BLUE, Colors.BOLD, "Welcome to Term " + username + "\n")
+printWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.SLIGHTLY_SMILING_FACE)
 
 getPc.getPc()
 shell.runShell()
