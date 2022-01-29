@@ -17,11 +17,15 @@ if os.stat(".term_config").st_size == 0:
 
 def startConfig():
     with open(".term_config", "a") as f:
+        f.truncate(0)
+    with open(".term_config", "a") as f:
+        #for weather
+        getCity = input("Please enter your city: ")
+        f.write(f"WEATHER_CITY: {getCity}\n")
         #for command input
         colorTo = input("Plese choose color (Restart after configuring) (RED, GREEN): ")
         f.write(f"INPUT_COLOR: {colorTo}\n")
         f.close()
-
     
 with open(".term_config", "r") as f:
     setCity = f.readline()
