@@ -17,7 +17,7 @@ async def getTimeAndWeather():
     try:
         client = python_weather.Client(format=python_weather.METRIC)
         weather = await client.find(c.nSetCity)
-        printWithBold(Colors.RED, Colors.BOLD, f"{c.nSetCity}: " + str(weather.current.temperature) + "C°" + "\n")
+        printlnWithBold(Colors.RED, Colors.BOLD, f"{c.nSetCity}: " + str(weather.current.temperature) + "C°")
         dt = datetime.datetime.now()
         printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
         await client.close()
@@ -29,7 +29,7 @@ async def getTimeAndWeather():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(getTimeAndWeather())
 
-printWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.SLIGHTLY_SMILING_FACE)
+printlnWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.SLIGHTLY_SMILING_FACE)
 
 getPc.getPc()
 shell.runShell()
