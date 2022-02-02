@@ -1,11 +1,10 @@
-from turtle import color
 from libs.printwith import Colors
 from moduls.config import registeredColor
 
 def inputWithColor(dir: str):
-        if registeredColor == "RED":
+        if registeredColor.capitalize() == "Red":
                 color = Colors.RED
-        elif registeredColor == "GREEN":
+        elif registeredColor.capitalize() == "Green":
                 color = Colors.GREEN
         else:
                 color = Colors.BLUE

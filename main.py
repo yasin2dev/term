@@ -17,7 +17,7 @@ async def getTimeAndWeather():
     try:
         client = python_weather.Client(format=python_weather.METRIC)
         weather = await client.find(c.nSetCity)
-        printlnWithBold(Colors.RED, Colors.BOLD, f"{c.nSetCity}: " + str(weather.current.temperature) + "C°")
+        printlnWithBold(Colors.RED, Colors.BOLD, f"{c.nSetCity.capitalize()}: " + str(weather.current.temperature) + "C°")
         dt = datetime.datetime.now()
         printWithBold(Colors.CYAN, Colors.BOLD, dt.strftime("%X") + " " + dt.strftime("%d") + "/" + dt.strftime("%m") + "/" + dt.strftime("%Y"))
         await client.close()
