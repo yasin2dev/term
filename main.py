@@ -29,7 +29,7 @@ async def getTimeAndWeather():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(getTimeAndWeather())
 
-printlnWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.SLIGHTLY_SMILING_FACE)
+printlnWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.smiling_with_heart_eyes)
 
 getPc.getPc()
 shell.runShell()
