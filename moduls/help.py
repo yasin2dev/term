@@ -10,4 +10,6 @@ def HelpText():
         restart     Restart Script (adjust main.py directory to shell.py)
         exit        Exit (default)
         shutdown    Turns off the PC.
+
+        Colors: BLUE, GREEN, CYAN, RED, YELLOW
     """))
