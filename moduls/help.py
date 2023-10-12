@@ -7,6 +7,8 @@ def HelpText():
 
         cd          Change Directory (default)
         ls          List Directory (default)
+        lsdir       List Directories only
+        lsf         List Files only
         restart     Restart Script (adjust main.py directory to shell.py)
         exit        Exit (default)
         shutdown    Turns off the PC.
