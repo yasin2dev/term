@@ -9,7 +9,7 @@ import moduls.ls as ls
 import moduls.config as cfg
 
 
-def runShell():
+def runShell(path):
     while (True):
 
         cdPrefix = "cd"
@@ -17,7 +17,7 @@ def runShell():
         cmd = iw.inputWithColor(currentDir)
 
         if cmd == "restart":
-            shellRestart()
+            shellRestart(path)
 
         elif cmd.startswith(cdPrefix):
             changeDirectory(cmd)
@@ -41,13 +41,12 @@ def runShell():
             os.system(cmd)
 
 
-def shellRestart():
+def shellRestart(path):
     if os.name == "nt":
         os.system("python main.py")
         exit()
     else:
-        os.system("python3 main.py")
-
+        os.system("python " + path)
 
 def changeDirectory(cmd):
     try:

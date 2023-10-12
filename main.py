@@ -24,4 +24,4 @@ if __name__ == "__main__":
     dt.dateAndTime()
     getPc.getUsername()
     getPc.getPc()
-    shell.runShell()
+    shell.runShell(__file__)
