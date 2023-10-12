@@ -2,7 +2,7 @@ import getpass
 import platform, psutil, json
 
 from libs.printwith import *
-
+from moduls.config import _welcomeText
 
 
 def is_64bit():
@@ -30,4 +30,8 @@ def getPc():
 
 def getUsername():
     username = getpass.getuser()
-    printlnWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.smiling_with_heart_eyes)
+
+    if _welcomeText == "":
+        printlnWithEmoji(Colors.BLUE, "Welcome to Term " + username, Emojis.smiling_with_heart_eyes)
+    else:
+        printlnWithEmoji(Colors.BLUE, _welcomeText, Emojis.smiling_with_heart_eyes)
