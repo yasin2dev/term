@@ -33,6 +33,8 @@ def runShell(path):
                 ls.ListDir(str(os.getcwd()))
         elif cmd == "lsdir":
             ls.onlyDirs(str(os.getcwd()))
+        elif cmd == "lsf":
+            ls.onlyFiles(str(os.getcwd()))
         elif cmd == "help":
             help.HelpText()
         elif cmd == "shutdown":

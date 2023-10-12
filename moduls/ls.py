@@ -16,3 +16,11 @@ def onlyDirs(path):
             printWithRegular(Colors.GREEN, "Directory: " + i.name)
         else:
             pass
+
+def onlyFiles(path):
+    items = os.scandir(path)
+    for i in items:
+        if os.path.isfile(i):
+            printWithRegular(Colors.RED, "File: " + i.name)
+        else:
+            pass
