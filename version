@@ -1,9 +1,0 @@
-0.1.2-beta-2
-
-This version is the optimizing version.
-
-Added:
- - runShellCommandExternal
-
-Removed:
- - Wheather (will be added)

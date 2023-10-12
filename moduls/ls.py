@@ -8,3 +8,11 @@ def ListDir(path):
             printWithRegular(Colors.GREEN, "Directory: " + i.name)
         else:
             printWithRegular(Colors.RED, "File: " + i.name)
+
+def onlyDirs(path):
+    items = os.scandir(path)
+    for i in items:
+        if os.path.isdir(i):
+            printWithRegular(Colors.GREEN, "Directory: " + i.name)
+        else:
+            pass
