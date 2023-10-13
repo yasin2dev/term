@@ -15,3 +15,6 @@ class Emojis:
     smiling_with_hearts = "\U0001F970"
     smiling_with_heart_eyes = "\U0001F60D"
     #TODO Please pull request for add emoji or easily way.
+
+class Paths:
+    main_path = "./main.py"

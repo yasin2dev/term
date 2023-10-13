@@ -71,12 +71,12 @@ def shutdown():
         pass
 
 
-def runShellCommandsExternal(cmd):
+def runShellCommandsExternal(cmd, path):
     commands = ['restart', 'cd', 'exit', 'ls', 'help', 'shutdown', 'config', 'dt']
     if cmd == 'exit':
         exit()
     elif cmd == 'restart':
-        shellRestart()
+        shellRestart(path)
     elif cmd == 'cd':
         print("cd? are you serious mate? PASS!")
         pass

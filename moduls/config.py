@@ -18,8 +18,8 @@ def startConfig():
         f.write(f"INPUT_COLOR: {colorTo}\n")
         f.write(f"WELCOME_TEXT: {welcomeTo}\n")
         f.close()
-        shell.runShellCommandsExternal("restart")
-    
+        shell.runShellCommandsExternal("restart", Paths.main_path)
+
 with open(".term_config", "r") as f:
     getColor = f.readline()
     getWelcome = f.readline()
