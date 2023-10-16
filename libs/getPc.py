@@ -2,12 +2,24 @@ import getpass
 import platform, psutil, json
 
 from libs.printwith import *
-from moduls.config import _welcomeText
+from moduls.config import _welcomeText, _pcInfoColor
 
 
 def is_64bit():
     return platform.machine().endswith('64')
 
+if _pcInfoColor.capitalize() == "Red":
+    color = Colors.RED
+elif _pcInfoColor.capitalize() == "Green":
+   color = Colors.GREEN
+elif _pcInfoColor.capitalize() == "Yellow":
+        color = Colors.YELLOW
+elif _pcInfoColor.capitalize() == "Cyan":
+        color = Colors.CYAN
+elif _pcInfoColor.capitalize() == "Blue":
+        color = Colors.BLUE
+else:
+        color = Colors.BLUE
 
 def getPc():
     info={}
@@ -18,14 +30,14 @@ def getPc():
     info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+ " GB"
     x = json.dumps(info)
     p = json.loads(x)
-    printWithBold(Colors.GREEN, Colors.BOLD, "OS: " + p['platform'] + " " + p['platform-release'])
-    printWithBold(Colors.GREEN, Colors.BOLD, "Version: " + p['platform-version'])
-    printWithBold(Colors.GREEN, Colors.BOLD, "Platform: " + str(p['chip-arch']))
+    printWithBold(color, Colors.BOLD, "OS: " + p['platform'] + " " + p['platform-release'])
+    printWithBold(color, Colors.BOLD, "Version: " + p['platform-version'])
+    printWithBold(color, Colors.BOLD, "Platform: " + str(p['chip-arch']))
     if is_64bit():
-        printWithBold(Colors.GREEN, Colors.BOLD, "Architecture: 64 bit")
+        printWithBold(color, Colors.BOLD, "Architecture: 64 bit")
     else:
-        printWithBold(Colors.GREEN, Colors.BOLD, "Architecture: 32 bit")
-    printWithBold(Colors.GREEN, Colors.BOLD, "RAM: " + p['ram'])
+        printWithBold(color, Colors.BOLD, "Architecture: 32 bit")
+    printWithBold(color, Colors.BOLD, "RAM: " + p['ram'])
     print("\n")
 
 def getUsername():
