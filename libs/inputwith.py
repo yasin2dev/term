@@ -1,5 +1,6 @@
 from libs.printwith import Colors, printlnWithBold
 from moduls.config import registeredColor
+from libs.defines import User
 
 def inputWithColor(dir: str):
         if registeredColor.capitalize() == "Red":
@@ -12,7 +13,9 @@ def inputWithColor(dir: str):
                 color = Colors.CYAN
         elif registeredColor.capitalize() == "Blue":
                 color = Colors.BLUE
+        elif registeredColor.capitalize() == "Magenta":
+                color = Colors.MAGENTA
         else:
                 color = Colors.BLUE
-        cmd = input(f'{color}{dir}:>{Colors.ENDC} ')
+        cmd = input(f'{Colors.BOLD}{Colors.CYAN}[{User.username}{Colors.RED}@{Colors.BLUE}{User.host}]:~{color}{dir}:>{Colors.ENDC} ')
         return cmd

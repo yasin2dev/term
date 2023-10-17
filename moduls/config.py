@@ -19,7 +19,7 @@ def startConfig():
         pcInfoColor = input("PC Info text color: ")
         f.write(f"INPUT_COLOR: {cmdColorTo}\n")
         f.write(f"WELCOME_TEXT: {welcomeColorTo}\n")
-        f.write(f"PC_INFO_COLOR: {pcInfoColor}")
+        f.write(f"PC_INFO_COLOR: {pcInfoColor}\n")
         input("You can do more customization in .term_config soon.\n")
         f.close()
         shell.runShellCommandsExternal("restart", Paths.main_path)

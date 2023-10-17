@@ -18,6 +18,8 @@ elif _pcInfoColor.capitalize() == "Cyan":
         color = Colors.CYAN
 elif _pcInfoColor.capitalize() == "Blue":
         color = Colors.BLUE
+elif _pcInfoColor.capitalize() == "Magenta":
+        color = Colors.MAGENTA
 else:
         color = Colors.BLUE
 
