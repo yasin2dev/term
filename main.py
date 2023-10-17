@@ -1,4 +1,4 @@
-#Term Version: 0.1.2-beta-2
+#Term Version: 0.1.3-beta-1
 
 #Import platform
 import platform

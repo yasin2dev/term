@@ -13,4 +13,4 @@
 
 _python -v: 3.11.5_
 <br>
-_version: **0.1.2-beta-2**_
+_version: **0.1.3-beta-1**_
