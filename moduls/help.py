@@ -20,5 +20,6 @@ def HelpText():
     printWithRegular(Colors.GREEN, "GREEN")
     printWithRegular(Colors.CYAN, "CYAN")
     printWithRegular(Colors.RED, "RED")
+    printWithRegular(Colors.MAGENTA, "MAGENTA")
     printlnWithRegular(Colors.YELLOW, "YELLOW")
                                      
