@@ -1,4 +1,4 @@
-INPUT_COLOR: Yellow
-WELCOME_TEXT: Hello Furyex! 
-PC_INFO_COLOR: Yellow
+INPUT_COLOR: yellow
+WELCOME_TEXT: redd
+PC_INFO_COLOR: red
 SHOW_PC_INFO: 1

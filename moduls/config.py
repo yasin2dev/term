@@ -3,15 +3,29 @@ import moduls.shell as shell
 from libs.defines import *
 from libs.printwith import *
 
+import shutil
+
 if os.path.isfile(".term_config"):
     pass
 else:
     open(".term_config", "w+").close()
 
-
-def startConfig():
     with open(".term_config", "a") as f:
         f.truncate(0)
+
+def prepareConfig():
+    shutil.copy(".term_config", f"/home/{User.username}/")
+    os.rename(f"/home/{User.username}/.term_config", f"/home/{User.username}/.old_term_config")
+    printlnWithBold(Colors.GREEN, Colors.BOLD, f"Old configuration file copied to /home/{User.username}/.old_term_config")
+    with open(".term_config", "a") as f:
+            f.truncate(0)
+
+def startConfig():
+    _sconfig = input("Are you sure to reconfigure Term? (y | n): ")
+    if _sconfig == "y":
+        prepareConfig()
+    else:
+        return
     with open(".term_config", "a") as f:
         #for command input
         cmdColorTo = input("Plese choose color (colors: 'help'): ")
