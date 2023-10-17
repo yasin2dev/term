@@ -1,4 +1,4 @@
-INPUT_COLOR: yellow
-WELCOME_TEXT: redd
-PC_INFO_COLOR: red
+INPUT_COLOR: Yellow
+WELCOME_TEXT: Welcome! 
+PC_INFO_COLOR: Magenta
 SHOW_PC_INFO: 1
