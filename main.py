@@ -7,6 +7,8 @@ import libs.printwith as pw
 import libs.inputwith as iw
 import libs.getPc as getPc
 
+from moduls.config import _showPc
+
 #If OS is Windows bypass import
 if platform.system() == 'Windows':
     pass
@@ -19,11 +21,15 @@ import moduls.shell as shell
 
 if __name__ == "__main__":
     #If platform doesn't Windows run function.
+    if platform.system() != "Windows":
+        rl.arrowKeys()
     dt.dateAndTime()
     getPc.getUsername()
-    if platform.system() != 'Windows':
-        rl.arrowKeys()
-        getPc.getLinuxPc()
+    if _showPc != "0":
+        if platform.system() != 'Windows':
+            getPc.getLinuxPc()
+        else:
+            getPc.getPc()
     else:
-        getPc.getPc()
+        pass
     shell.runShell(__file__)
