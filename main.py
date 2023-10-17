@@ -19,9 +19,11 @@ import moduls.shell as shell
 
 if __name__ == "__main__":
     #If platform doesn't Windows run function.
-    if platform.system() != 'Windows':
-        rl.arrowKeys()
     dt.dateAndTime()
     getPc.getUsername()
-    getPc.getPc()
+    if platform.system() != 'Windows':
+        rl.arrowKeys()
+        getPc.getLinuxPc()
+    else:
+        getPc.getPc()
     shell.runShell(__file__)

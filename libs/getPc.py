@@ -1,5 +1,5 @@
 import getpass 
-import platform, psutil, json
+import platform, psutil, json, distro
 
 from libs.printwith import *
 from moduls.config import _welcomeText, _pcInfoColor
@@ -20,6 +20,25 @@ elif _pcInfoColor.capitalize() == "Blue":
         color = Colors.BLUE
 else:
         color = Colors.BLUE
+
+def getLinuxPc():
+    info={}
+    info['platform']=str(distro.linux_distribution()[0])
+    info['platform-release']=str(platform.release())
+    info['platform-version']=distro.version()
+    info['chip-arch']=platform.machine()
+    info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+ " GB"
+    x = json.dumps(info)
+    p = json.loads(x)
+    printWithBold(color, Colors.BOLD, "OS: " + p['platform'] + " " + p['platform-version'])
+    printWithBold(color, Colors.BOLD, "Release: " + p['platform-release'])
+    printWithBold(color, Colors.BOLD, "Platform: " + str(p['chip-arch']))
+    if is_64bit():
+        printWithBold(color, Colors.BOLD, "Architecture: 64 bit")
+    else:
+        printWithBold(color, Colors.BOLD, "Architecture: 32 bit")
+    printWithBold(color, Colors.BOLD, "RAM: " + p['ram'])
+    print("\n")
 
 def getPc():
     info={}
