@@ -37,6 +37,8 @@ def runShell(path):
             ls.onlyFiles(str(os.getcwd()))
         elif cmd == "help":
             help.HelpText()
+        elif cmd == "help emojis":
+            help.emojisText()
         elif cmd == "shutdown":
             shutdown()
         elif cmd == "config":

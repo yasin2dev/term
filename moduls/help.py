@@ -1,5 +1,5 @@
 from libs.printwith import *
-
+from libs.emoji import *
 
 def HelpText():
     printWithRegular(Colors.YELLOW, (f"""
@@ -22,4 +22,8 @@ def HelpText():
     printWithRegular(Colors.RED, "RED")
     printWithRegular(Colors.MAGENTA, "MAGENTA")
     printlnWithRegular(Colors.YELLOW, "YELLOW")
+
+def emojisText():
+    for i in emojis:
+        print(i + " " + emojis[i])
                                      
