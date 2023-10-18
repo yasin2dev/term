@@ -2,7 +2,7 @@ from libs.printwith import *
 from libs.emoji import *
 
 def HelpText():
-    printWithBold(Colors.YELLOW, Colors.BOLD, (f"""
+    printWithBold(Colors.YELLOW, (f"""
         Here is the Term Help!
 
         cd          Change Directory (default)
@@ -16,7 +16,7 @@ def HelpText():
 
     """))
 
-    printWithBold(Colors.GREEN, Colors.BOLD, """
+    printWithBold(Colors.GREEN, """
         help [topic]
         
         emojis      Print all emojis

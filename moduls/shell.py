@@ -59,7 +59,7 @@ def changeDirectory(cmd):
         ncmd = cmd.split()
         os.chdir(ncmd[1])
     except FileNotFoundError:
-        pw.printWithBold(pw.Colors.RED, pw.Colors.BOLD,
+        pw.printWithBold(pw.Colors.RED,
                       "Sorry! I can't find your directory!")
 
 def shutdown():

@@ -33,14 +33,14 @@ def getLinuxPc():
     info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+ " GB"
     x = json.dumps(info)
     p = json.loads(x)
-    printWithBold(color, Colors.BOLD, "OS: " + p['platform'] + " " + p['platform-version'])
-    printWithBold(color, Colors.BOLD, "Release: " + p['platform-release'])
-    printWithBold(color, Colors.BOLD, "Platform: " + str(p['chip-arch']))
+    printWithBold(color, "OS: " + p['platform'] + " " + p['platform-version'])
+    printWithBold(color, "Release: " + p['platform-release'])
+    printWithBold(color, "Platform: " + str(p['chip-arch']))
     if is_64bit():
-        printWithBold(color, Colors.BOLD, "Architecture: 64 bit")
+        printWithBold(color, "Architecture: 64 bit")
     else:
-        printWithBold(color, Colors.BOLD, "Architecture: 32 bit")
-    printWithBold(color, Colors.BOLD, "RAM: " + p['ram'])
+        printWithBold(color, "Architecture: 32 bit")
+    printWithBold(color, "RAM: " + p['ram'])
     print("\n")
 
 def getPc():
@@ -52,14 +52,14 @@ def getPc():
     info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+ " GB"
     x = json.dumps(info)
     p = json.loads(x)
-    printWithBold(color, Colors.BOLD, "OS: " + p['platform'] + " " + p['platform-release'])
-    printWithBold(color, Colors.BOLD, "Version: " + p['platform-version'])
-    printWithBold(color, Colors.BOLD, "Platform: " + str(p['chip-arch']))
+    printWithBold(color, "OS: " + p['platform'] + " " + p['platform-release'])
+    printWithBold(color, "Version: " + p['platform-version'])
+    printWithBold(color, "Platform: " + str(p['chip-arch']))
     if is_64bit():
-        printWithBold(color, Colors.BOLD, "Architecture: 64 bit")
+        printWithBold(color, "Architecture: 64 bit")
     else:
-        printWithBold(color, Colors.BOLD, "Architecture: 32 bit")
-    printWithBold(color, Colors.BOLD, "RAM: " + p['ram'])
+        printWithBold(color, "Architecture: 32 bit")
+    printWithBold(color, "RAM: " + p['ram'])
     print("\n")
 
 def getUsername():
@@ -68,4 +68,4 @@ def getUsername():
     if _welcomeText == "":
         printlnWithBold(Colors.BLUE, "Welcome to Term " + username + emojipy(_emoji))
     else:
-        printlnWithBold(Colors.BLUE, Colors.BOLD, _welcomeText + emojipy(_emoji))
+        printlnWithBold(Colors.BLUE, _welcomeText + emojipy(_emoji))
