@@ -68,4 +68,4 @@ def getUsername():
     if _welcomeText == "":
         printlnWithBold(Colors.BLUE, "Welcome to Term " + username + emojipy(_emoji))
     else:
-        printlnWithBold(Colors.BLUE, _welcomeText + emojipy(_emoji))
+        printlnWithBold(Colors.BLUE, _welcomeText + " " + emojipy(_emoji))

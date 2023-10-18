@@ -16,7 +16,7 @@ else:
 def prepareConfig():
     shutil.copy(".term_config", f"/home/{User.username}/")
     os.rename(f"/home/{User.username}/.term_config", f"/home/{User.username}/.old_term_config")
-    printlnWithBold(Colors.GREEN, Colors.BOLD, f"Old configuration file copied to /home/{User.username}/.old_term_config")
+    printlnWithBold(Colors.GREEN, f"Old configuration file copied to /home/{User.username}/.old_term_config")
     with open(".term_config", "a") as f:
             f.truncate(0)
 
