@@ -1,6 +1,6 @@
 import getpass 
 import platform, psutil, json, distro
-
+from libs.filerm import filerm
 from libs.printwith import *
 from libs.emoji import *
 from moduls.config import _welcomeText, _pcInfoColor, _emoji
@@ -25,22 +25,14 @@ else:
         color = Colors.BLUE
 
 def getLinuxPc():
-    info={}
-    info['platform']=str(distro.linux_distribution()[0])
-    info['platform-release']=str(platform.release())
-    info['platform-version']=distro.version()
-    info['chip-arch']=platform.machine()
-    info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+ " GB"
-    x = json.dumps(info)
-    p = json.loads(x)
-    printWithBold(color, "OS: " + p['platform'] + " " + p['platform-version'])
-    printWithBold(color, "Release: " + p['platform-release'])
-    printWithBold(color, "Platform: " + str(p['chip-arch']))
+    printWithBold(color, "OS: " + filerm.getOS("os-name"))
+    printWithBold(color, "Release: " + filerm.getOS("kernel"))
+    printWithBold(color, "Platform: " + str(platform.machine()))
     if is_64bit():
         printWithBold(color, "Architecture: 64 bit")
     else:
         printWithBold(color, "Architecture: 32 bit")
-    printWithBold(color, "RAM: " + p['ram'])
+    printWithBold(color, "RAM: " + filerm.ReadMemory("gb"))
     print("\n")
 
 def getPc():
