@@ -15,8 +15,18 @@ class filerm:
             data = subprocess.check_output(command, shell=True).decode().strip()
             return data
         elif prp == "shell":
-            return os.environ["SHELL"]
-
+            command = "echo ${BASH_VERSION}"
+            data = subprocess.check_output(command, shell=True).decode().strip()
+            for line in data.split("\n"):
+                if "release" in line:
+                    version = re.sub('()-release*.', "", line, 1)
+            return os.environ["SHELL"] + " " + version
+        
+        elif prp == "desktop-env":
+            command = "echo ${XDG_CURRENT_DESKTOP}"
+            data = subprocess.check_output(command, shell=True).decode().strip()
+            for line in data.split("\n"):
+                return line
 
     def ReadCPU():
         if platform.system() == "Windows":
