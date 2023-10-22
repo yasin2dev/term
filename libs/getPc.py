@@ -1,8 +1,8 @@
-import getpass 
 import platform, psutil, json, distro
 from libs.filerm import filerm
 from libs.printwith import *
 from libs.emoji import *
+from libs.defines import User
 from moduls.config import _welcomeText, _pcInfoColor, _emoji
 
 
@@ -55,9 +55,7 @@ def getPc():
     print("\n")
 
 def getUsername():
-    username = getpass.getuser()
-
     if _welcomeText == "":
-        printlnWithBold(Colors.BLUE, "Welcome to Term " + username + emojipy(_emoji))
+        printlnWithBold(Colors.BLUE, "Welcome to Term " + User.username + emojipy(_emoji))
     else:
         printlnWithBold(Colors.BLUE, _welcomeText + " " + emojipy(_emoji))

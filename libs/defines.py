@@ -1,4 +1,4 @@
-import getpass
+import getpass, os
 import socket
 
 class Colors: 
@@ -12,8 +12,9 @@ class Colors:
     MAGENTA = '\033[35m'
 
 class Paths:
-    main_path = "./main.py"
+    main_path = os.path.abspath("./main.py")
 
 class User:
     username = getpass.getuser()
     host = socket.gethostname()
+    home = os.path.expanduser("~")

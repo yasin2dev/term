@@ -5,20 +5,23 @@ from libs.printwith import *
 
 import shutil
 
-if os.path.isfile(".term_config"):
+home = User.home
+
+if os.path.isfile(f"{home}/.term_config"):
     pass
 else:
-    open(".term_config", "w+").close()
+    open(f"{home}/.term_config", "w+").close()
 
-    with open(".term_config", "a") as f:
+    with open(f"{home}/.term_config", "a") as f:
         f.truncate(0)
+        f.close()
 
 def prepareConfig():
-    shutil.copy(".term_config", f"/home/{User.username}/")
-    os.rename(f"/home/{User.username}/.term_config", f"/home/{User.username}/.old_term_config")
-    printlnWithBold(Colors.GREEN, f"Old configuration file copied to /home/{User.username}/.old_term_config")
-    with open(".term_config", "a") as f:
-            f.truncate(0)
+    shutil.copy(f"{home}/.term_config", f"{home}/.old_term_config")
+    printlnWithBold(Colors.GREEN, f"Old configuration file copied to {home}/.old_term_config")
+    with open(f"{home}/.term_config", "a") as f:
+        f.truncate(0)
+        f.close()
 
 def startConfig():
     _sconfig = input("Are you sure to reconfigure Term? (y | n): ")
@@ -26,7 +29,7 @@ def startConfig():
         prepareConfig()
     else:
         return
-    with open(".term_config", "a") as f:
+    with open(f"{home}/.term_config", "a") as f:
         #for command input
         cmdColorTo = input("Plese choose color (colors: 'help'): ")
         welcomeColorTo = input("Welcome text: ")
@@ -42,7 +45,7 @@ def startConfig():
         f.close()
         shell.runShellCommandsExternal("restart", Paths.main_path)
 
-with open(".term_config", "r") as f:
+with open(f"{home}/.term_config", "r") as f:
     getColor = f.readline()
     getWelcome = f.readline()
     getPcInfo = f.readline()
