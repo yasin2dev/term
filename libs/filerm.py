@@ -4,6 +4,12 @@ import psutil
 class filerm:
     system = platform.system()
     def getOS(prp: str):
+        
+        ## DESKTOP ENVIRONMENT
+        de = "echo ${XDG_CURRENT_DESKTOP}"
+        de_data = subprocess.check_output(de, shell=True).decode().strip()
+        ##
+
         command = "cat /etc/os-release"
         data = subprocess.check_output(command, shell=True).decode().strip()
         if prp == "os-name":
@@ -23,10 +29,26 @@ class filerm:
             return os.environ["SHELL"] + " " + version
         
         elif prp == "desktop-env":
-            command = "echo ${XDG_CURRENT_DESKTOP}"
-            data = subprocess.check_output(command, shell=True).decode().strip()
-            for line in data.split("\n"):
-                return line
+            if de_data == "GNOME": 
+                command = "gnome-shell --version"
+                data = subprocess.check_output(command, shell=True).decode().strip()
+                for line in data.split("\n"):
+                    return re.sub('Shell*.', "", line, 1)
+            else:
+                return de_data
+        
+        elif prp == "window-mngr":
+            wm = "echo ${XDG_SESSION_TYPE}"
+            wm_data = subprocess.check_output(wm, shell=True).decode().strip()
+            return wm_data
+
+        if de_data == "GNOME": 
+            if prp == "gnome-theme":
+                command = "gsettings get org.gnome.desktop.interface gtk-theme" 
+                theme_data = subprocess.check_output(command, shell=True).decode().strip() 
+                return theme_data.replace("'", "")
+        else:
+            pass #TODO
 
     def ReadCPU():
         if platform.system() == "Windows":
@@ -61,6 +83,10 @@ class filerm:
             return str(round(memory.total / 1024.0 **2)) + " MB"
         elif size == "gb":
             return str(round(memory.total / 1024.0 **3)) + " GB"
+        
+    def CurrentRam():
+        memory = psutil.virtual_memory()
+        return str(round(memory.active / 1024.0 **2)) + " MB"
     
     def ReadDisk():
         disk = psutil.disk_usage("/")
