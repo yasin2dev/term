@@ -8,6 +8,7 @@ import moduls.help as help
 import moduls.ls as ls
 import moduls.config as cfg
 
+from commands.cmd import *
 
 def runShell(path):
     while (True):
@@ -43,6 +44,8 @@ def runShell(path):
             shutdown()
         elif cmd == "config":
             cfg.startConfig()
+        elif cmd == "fetcherm":
+            TermCommands.runFetcherm()
         else:
             os.system(cmd)
 
