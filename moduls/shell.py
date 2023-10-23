@@ -40,6 +40,8 @@ def runShell(path):
             help.HelpText()
         elif cmd == "help emojis":
             help.emojisText()
+        elif cmd == "help commands":
+            help.termCommands()
         elif cmd == "shutdown":
             shutdown()
         elif cmd == "config":

@@ -20,6 +20,7 @@ def HelpText():
         help [topic]
         
         emojis      Print all emojis
+        commands    Print all Term commands
     
     """)
 
@@ -34,4 +35,9 @@ def HelpText():
 def emojisText():
     for i in emojis:
         print(i + " " + emojis[i])
-                                     
+
+
+def termCommands():
+    printWithBold(Colors.BLUE, """
+                  Fetcherm [fetcherm]: Detailed PC Information Tool
+                  """)
