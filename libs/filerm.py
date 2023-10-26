@@ -118,7 +118,7 @@ class filerm:
     ## read used ram amount.
     def CurrentRam():
         memory = psutil.virtual_memory()
-        return str(round(memory.active / 1024.0 **2)) + " MB"
+        return str(round(memory.used / 1024.0 **2)) + " MB"
 
     ###
     # Read total disk size.
