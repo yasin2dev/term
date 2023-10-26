@@ -3,8 +3,6 @@
 #Import platform
 import platform
 import libs.dtime as dt
-import libs.printwith as pw
-import libs.inputwith as iw
 import libs.getPc as getPc
 
 from moduls.config import _showPc
@@ -14,7 +12,6 @@ if platform.system() == 'Windows':
     pass
 else:
     import libs.readline as rl
-
 
 import moduls.shell as shell
 
