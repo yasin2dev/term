@@ -3,7 +3,7 @@ from libs.filerm import filerm
 from libs.printwith import *
 from libs.emoji import *
 from libs.defines import User
-from moduls.config import _welcomeText, _pcInfoColor, _emoji
+from moduls.config import _welcomeText, _pcInfoColor, _emoji, _welcomeTextColor
 
 
 def is_64bit():
@@ -54,8 +54,25 @@ def getPc():
     printWithBold(color, "RAM: " + p['ram'])
     print("\n")
 
+
+## There is no switch case for Python
+if _welcomeTextColor.capitalize() == "Red":
+    Wcolor = Colors.RED
+elif _welcomeTextColor.capitalize() == "Green":
+   Wcolor = Colors.GREEN
+elif _welcomeTextColor.capitalize() == "Yellow":
+        Wcolor = Colors.YELLOW
+elif _welcomeTextColor.capitalize() == "Cyan":
+        Wcolor = Colors.CYAN
+elif _welcomeTextColor.capitalize() == "Blue":
+        Wcolor = Colors.BLUE
+elif _welcomeTextColor.capitalize() == "Magenta":
+        Wcolor = Colors.MAGENTA
+else:
+        Wcolor = Colors.BLUE
+
 def getUsername():
     if _welcomeText == "":
-        printlnWithBold(Colors.BLUE, "Welcome to Term " + User.username + emojipy(_emoji))
+        printlnWithBold(Wcolor, "Welcome to Term " + User.username + emojipy(_emoji))
     else:
-        printlnWithBold(Colors.BLUE, _welcomeText + " " + emojipy(_emoji))
+        printlnWithBold(Wcolor, _welcomeText + " " + emojipy(_emoji))
