@@ -60,4 +60,3 @@ with open(f"{home}/.term_config", "r") as f:
     _showPc = getShowPc.replace("\n", "")[14:]
     _emoji = getEmoji.replace("\n", "")[15:]
     _welcomeTextColor = getWelcomeColor.replace("\n", "")[20:]
-    print(_welcomeTextColor)
