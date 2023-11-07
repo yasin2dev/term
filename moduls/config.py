@@ -48,15 +48,17 @@ def startConfig():
         shell.runShellCommandsExternal("restart", Paths.main_path)
 
 with open(f"{home}/.term_config", "r") as f:
-    getColor = f.readline()
-    getWelcome = f.readline()
-    getPcInfo = f.readline()
-    getShowPc = f.readline()
-    getEmoji  = f.readline()
-    getWelcomeColor = f.readline()
-    _welcomeText = getWelcome.replace("\n", "")[14:]
-    registeredColor = getColor.replace("\n", "")[13:]
-    _pcInfoColor = getPcInfo.replace("\n", "")[15:]
-    _showPc = getShowPc.replace("\n", "")[14:]
-    _emoji = getEmoji.replace("\n", "")[15:]
-    _welcomeTextColor = getWelcomeColor.replace("\n", "")[20:]
+    data = tuple(f.readlines())
+    for i in range(len(data)):
+        if i == 0:
+            registeredColor = data[i].replace("\n", "")[13:]
+        elif i == 1:
+            _welcomeText = data[i].replace("\n", "")[14:]
+        elif i == 2:
+            _pcInfoColor = data[i].replace("\n", "")[15:]
+        elif i == 3:
+            _showPc = data[i].replace("\n", "")[14:]
+        elif i == 4:
+            _emoji = data[i].replace("\n", "")[15:]
+        elif i == 5:
+            _welcomeTextColor = data[i].replace("\n", "")[20:]
