@@ -10,7 +10,7 @@ def fetcherm():
     printWithBold(Colors.YELLOW, f"Shell: {Colors.WHITE}{filerm.getOS('shell')}")
     printWithBold(Colors.YELLOW, f"DE: {Colors.WHITE}{filerm.getOS('desktop-env')}")
     printWithBold(Colors.YELLOW, f"WM: {Colors.WHITE}{filerm.getOS('window-mngr').capitalize()}")
-    printWithBold(Colors.YELLOW, f"Theme: {Colors.WHITE}{filerm.getOS('gnome-theme')}")
+    printWithBold(Colors.YELLOW, f"Theme: {Colors.WHITE}{filerm.ReadTheme()}")
 
     printWithBold(Colors.YELLOW, f"CPU: {Colors.WHITE}{filerm.ReadCPU()}")
     printWithBold(Colors.YELLOW, f"GPU: {Colors.WHITE}{filerm.ReadGPU()}")
