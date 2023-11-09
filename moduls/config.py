@@ -14,7 +14,10 @@ else:
 
     with open(f"{home}/.term_config", "a") as f:
         f.truncate(0)
-        f.close()
+        with open("default_conf.trm", "r") as w:
+            for i in w:
+                f.write(i)
+            f.close()
 
 def prepareConfig():
     shutil.copy(f"{home}/.term_config", f"{home}/.old_term_config")
