@@ -11,6 +11,6 @@
 
 ![Help](./res/help.png)
 
-_python -v: 3.11.5_
+_python: compatible with 3.10.x / 3.11.x_
 <br>
 _version: **0.1.3-beta-1**_
