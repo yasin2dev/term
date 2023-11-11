@@ -1,7 +1,9 @@
 import platform, os, subprocess, re
-import psutil
+import psutil, socket, getpass
 
 class filerm:
+    host = socket.gethostname()
+    user = getpass.getuser()
     system = platform.system()
     def getOS(prp: str):
         

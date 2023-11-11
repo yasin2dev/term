@@ -3,15 +3,21 @@ from libs.printwith import *
 from libs.defines import Colors
 
 def fetcherm():
-    printlnWithBold(Colors.GREEN, "\nWelcome to Fetcherm")
-    
-    printWithBold(Colors.YELLOW, f"OS:  {Colors.WHITE}{filerm.getOS('os-name')}")
-    printWithBold(Colors.YELLOW, f"Kernel: {Colors.WHITE}{filerm.getOS('kernel')}")
-    printWithBold(Colors.YELLOW, f"Shell: {Colors.WHITE}{filerm.getOS('shell')}")
-    printWithBold(Colors.YELLOW, f"DE: {Colors.WHITE}{filerm.getOS('desktop-env')}")
-    printWithBold(Colors.YELLOW, f"WM: {Colors.WHITE}{filerm.getOS('window-mngr').capitalize()}")
-    printWithBold(Colors.YELLOW, f"Theme: {Colors.WHITE}{filerm.ReadTheme()}")
+    printlnWithBold(Colors.TGRN, "\nWelcome to Fetcherm")
 
-    printWithBold(Colors.YELLOW, f"CPU: {Colors.WHITE}{filerm.ReadCPU()}")
-    printWithBold(Colors.YELLOW, f"GPU: {Colors.WHITE}{filerm.ReadGPU()}")
-    printWithBold(Colors.YELLOW, f"Memory: {Colors.WHITE}{filerm.CurrentRam() + ' / ' + filerm.ReadMemory('mb')}\n")
+    hostUser = f"{Colors.TGRN}{Colors.BOLD}[{Colors.TLGN}{Colors.BOLD}{filerm.user}{Colors.TRED}{Colors.BOLD}@{Colors.TLBL}{Colors.BOLD}{filerm.host}{Colors.TGRN}{Colors.BOLD}]{Colors.TNRM}"
+    print(hostUser)
+    for i in range(len(f"[{filerm.user}@{filerm.host}]")):
+        print("-", end='')
+
+    printWithBold(Colors.TYLW, f"\nOS:  {Colors.TWHT}{filerm.getOS('os-name')}")
+    printWithBold(Colors.TYLW, f"Kernel: {Colors.TWHT}{filerm.getOS('kernel')}")
+    printWithBold(Colors.TYLW, f"Shell: {Colors.TWHT}{filerm.getOS('shell')}")
+    printWithBold(Colors.TYLW, f"DE: {Colors.TWHT}{filerm.getOS('desktop-env')}")
+    printWithBold(Colors.TYLW, f"WM: {Colors.TWHT}{filerm.getOS('window-mngr').capitalize()}")
+    printWithBold(Colors.TYLW, f"Theme: {Colors.TWHT}{filerm.ReadTheme()}")
+
+    printWithBold(Colors.TYLW, f"CPU: {Colors.TWHT}{filerm.ReadCPU()}")
+    printWithBold(Colors.TYLW, f"GPU: {Colors.TWHT}{filerm.ReadGPU()}")
+    printWithBold(Colors.TYLW, f"Memory: {Colors.TWHT}{filerm.CurrentRam() + ' / ' + filerm.ReadMemory('mb')}")
+    printWithBold(Colors.TYLW, f"Disk size: {Colors.TWHT}{filerm.ReadDisk()}\n")
