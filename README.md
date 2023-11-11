@@ -13,4 +13,4 @@
 
 _python: compatible with 3.10.x / 3.11.x_
 <br>
-_version: **0.1.3-beta-1**_
+_version: **0.1.4-beta-1**_
