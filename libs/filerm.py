@@ -100,3 +100,48 @@ class filerm:
     def ReadDisk():
         disk = psutil.disk_usage("/")
         return str(round(disk.total / 1024.0 **3)) + " GB"
+
+
+class filermFile:
+
+    def TruncateFile(fileDir: str):
+        with open(fileDir, "w+") as f:
+            f.truncate(0)
+            f.close()
+
+    def CreateFile(fileName: str):
+        if os.path.isfile(fileName):
+            print("File exist.")
+            pass
+        else: 
+            open(fileName, "w+").close()
+
+
+class filermWindows:
+    def getOs(prp: str):
+        if prp == "os-name":
+            return platform.win32_ver()[0]
+        elif prp == "version":
+            return platform.win32_ver()[1]
+        
+    def ReadMemory(size: str):
+        memory = psutil.virtual_memory()
+        if size == "kb":
+            return str(round(memory.total / 1024.0))
+        elif size == "mb":
+            return str(round(memory.total / 1024.0 **2))
+        elif size == "gb":
+            return str(round(memory.total / 1024.0 **3))
+
+    def ReadDisk():
+        disk = psutil.disk_usage("/")
+        return str(round(disk.total / 1024.0 **3)) + " GB"
+
+    def ReadGPU():
+        gpu = subprocess.check_output('wmic path win32_VideoController get name')
+        return str(gpu).replace("b'Name", "").replace("\\r", "").replace("\\n", "").replace("'", "").strip()
+    
+    def ReadCPU():
+        if platform.system() == "Windows":
+            cpu = subprocess.check_output("wmic cpu get name")
+            return str(cpu).replace("b'Name", "").replace("\\r", "").replace("\\n", "").replace("'", "").strip()
