@@ -57,7 +57,9 @@ def shellRestart(path):
         os.system("python main.py")
         exit()
     else:
-        os.system("python " + path)
+      from shutil import which
+      if which("pythom") is None:
+        os.system("python3 main.py")
 
 def changeDirectory(cmd):
     try:
