@@ -1,6 +1,8 @@
 import getpass, os
 import socket
 
+
+## Color defines in ASCII codes
 class Colors: 
     BLUE = '\033[94m'
     ENDC = '\033[0m'
@@ -31,9 +33,12 @@ class Colors:
     TWHT = "\x1B[1;37m" # white
 
 
+# Get main.py file absolute path.
 class Paths:
     main_path = os.path.abspath("./main.py")
 
+
+# User information
 class User:
     username = getpass.getuser()
     host = socket.gethostname()

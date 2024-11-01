@@ -6,6 +6,8 @@
 # Distributed under the terms of the MIT License.
 #
 
+
+## Emoji list. -Great thanks to ferhatgec-
 emojis = {
     ":admission_tickets:": "\U0001F39F",
     ":aerial_tramway:": "\U0001F6A1",

@@ -1,6 +1,8 @@
 from libs.printwith import *
 from libs.emoji import *
 
+
+# basic help template
 def HelpText():
     printWithBold(Colors.YELLOW, (f"""
         Here is the Term Help!
@@ -32,11 +34,12 @@ def HelpText():
     printWithRegular(Colors.MAGENTA, "MAGENTA")
     printlnWithRegular(Colors.YELLOW, "YELLOW")
 
+#print all emojis from emoji.py
 def emojisText():
     for i in emojis:
         print(i + " " + emojis[i])
 
-
+#for term included commands
 def termCommands():
     printWithBold(Colors.BLUE, """
                   Fetcherm [fetcherm]: Detailed PC Information Tool

@@ -3,6 +3,7 @@ from moduls.config import registeredColor
 from libs.defines import User
 
 def inputWithColor(dir: str):
+        #Colors fetching from .term_config file.
         if registeredColor.capitalize() == "Red":
                 color = Colors.RED
         elif registeredColor.capitalize() == "Green":
@@ -17,5 +18,6 @@ def inputWithColor(dir: str):
                 color = Colors.MAGENTA
         else:
                 color = Colors.BLUE
+        # Input template
         cmd = input(f'{Colors.BOLD}{Colors.CYAN}[{User.username}{Colors.RED}@{Colors.BLUE}{User.host}]:~{color}{dir}:>{Colors.ENDC} ')
         return cmd

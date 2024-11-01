@@ -1,6 +1,9 @@
 import platform, os, subprocess, re
 import psutil, socket, getpass
 
+
+## LINUX OPERATING SYSTEMS
+
 class filerm:
     host = socket.gethostname()
     user = getpass.getuser()
@@ -116,6 +119,8 @@ class filermFile:
         else: 
             open(fileName, "w+").close()
 
+
+## WINDOWS OPERATING SYSTEMS
 
 class filermWindows:
     def getOs(prp: str):

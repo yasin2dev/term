@@ -1,5 +1,8 @@
 from libs.defines import *
 
+
+#print with Colors. bold, regular, with space, line etc.
+
 def printlnWithBold(color: Colors, text):
     print(color + Colors.BOLD + text + Colors.ENDC + "\n")
 

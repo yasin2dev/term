@@ -7,9 +7,14 @@ import shutil
 
 home = User.home
 
+## kinda difficult but its actually readable.
+
+
+# check? .term_file exist or not.
 if os.path.isfile(f"{home}/.term_config"):
     pass
 else:
+    # open and insert default configuration into created .term_config file.
     open(f"{home}/.term_config", "w+").close()
 
     with open(f"{home}/.term_config", "a") as f:
@@ -19,6 +24,8 @@ else:
                 f.write(i)
             f.close()
 
+
+# Preparing to configuration; backup old config file into .old_term_config then truncate it
 def prepareConfig():
     shutil.copy(f"{home}/.term_config", f"{home}/.old_term_config")
     printlnWithBold(Colors.GREEN, f"Old configuration file copied to {home}/.old_term_config")
@@ -26,12 +33,15 @@ def prepareConfig():
         f.truncate(0)
         f.close()
 
+
+#start configuration
 def startConfig():
     _sconfig = input("Are you sure to reconfigure Term? (y | n): ")
     if _sconfig == "y":
         prepareConfig()
     else:
         return
+    #write input values to file
     with open(f"{home}/.term_config", "a") as f:
         #for command input
         cmdColorTo = input("Plese choose color (colors: 'help'): ")
@@ -48,9 +58,12 @@ def startConfig():
         f.write(f"WELCOME_TEXT_COLOR: {welcomeTextColor}")
         input("You can do more customization in .term_config soon.\n")
         f.close()
+        #restart for refreshing.
         shell.runShellCommandsExternal("restart", Paths.main_path)
 
+
 with open(f"{home}/.term_config", "r") as f:
+    #delete whitespace char and another prefixes for file.
     data = tuple(f.readlines())
     for i in range(len(data)):
         if i == 0:

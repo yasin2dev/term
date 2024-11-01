@@ -1,6 +1,8 @@
 import os
 from libs.printwith import *
 
+
+#listing current directory with files and folders.
 def ListDir(path):
     items = os.scandir(path)
     for i in items:
@@ -9,6 +11,7 @@ def ListDir(path):
         else:
             printWithRegular(Colors.RED, "File: " + i.name)
 
+#listing only directorys in current directory
 def onlyDirs(path):
     items = os.scandir(path)
     for i in items:
@@ -17,6 +20,7 @@ def onlyDirs(path):
         else:
             pass
 
+#listing only files in current directory
 def onlyFiles(path):
     items = os.scandir(path)
     for i in items:

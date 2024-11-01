@@ -6,9 +6,11 @@ from libs.defines import User
 from moduls.config import _welcomeText, _pcInfoColor, _emoji, _welcomeTextColor
 
 
+# check architecture of CPU
 def is_64bit():
     return platform.machine().endswith('64')
 
+## PC Information colors matching with .term_config file
 if _pcInfoColor.capitalize() == "Red":
     color = Colors.RED
 elif _pcInfoColor.capitalize() == "Green":
@@ -24,6 +26,8 @@ elif _pcInfoColor.capitalize() == "Magenta":
 else:
         color = Colors.BLUE
 
+
+# Using filerm for getting information about linux pc
 def getLinuxPc():
     printWithBold(color, "OS: " + filerm.getOS("os-name"))
     printWithBold(color, "Release: " + filerm.getOS("kernel"))
@@ -35,6 +39,8 @@ def getLinuxPc():
     printWithBold(color, "RAM: " + filerm.ReadMemory("gb"))
     print("\n")
 
+
+# Use psutil lib for getting information about windows pc
 def getPc():
     info={}
     info['platform']=platform.system()
@@ -71,6 +77,7 @@ elif _welcomeTextColor.capitalize() == "Magenta":
 else:
         Wcolor = Colors.BLUE
 
+# Getting username -you can read actually-
 def getUsername():
     if _welcomeText == "":
         printlnWithBold(Wcolor, "Welcome to Term " + User.username + emojipy(_emoji))
